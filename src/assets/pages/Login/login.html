@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="contenedor">
+      <div class="cardlogin" id="formLogin">
+        <form action="" class="form" >
+          
+          <h1>Iniciar sesión</h1><br>
+          
+          <label for="name"> <p>Usuario:</p></label>
+          <input type="text" placeholder="ejemplo@correo.com" name="name" id="user">
+          
+          <label for="Pass"><p>Contraseña:</p></label>
+          <input type="password"placeholder="Contraseña" name="Pass" id="passUser"> 
+          
+          <div class="radio">
+              <input  type="checkbox" value=""> 
+              <label for="Recordarme"><p>Recuérdame</p></label>
+         </div>
+  
+          <a href="#" class="hbtn hb-fill-right-br" id="userLoginBtn">Entrar</a> <br>
+          <a href="">Olvidé mi contraseña</a>
+          <a href="../register/register.html" target="_blank">Registrarme</a>
+         
+          <div class="socialbtn">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+          </div>
+          </form>   
+      
+       <!-- <div class="containerResponseError" id="loginRespError"> 
+        <h3>Se ha producido un error, intente nuevamente</h3>
+      </div> -->
+      </div>
+      <div class="containerResponseOk" id="loginRespOk">
+        <h3>INICIO SESIÓN EN BEAUTY GLAM..c: </h3><a href="../Products/products.html">Ver Productos</a>
+      </div>
+    </div>
+    <script src="./Login.js"></script>
+</body>
+</html>

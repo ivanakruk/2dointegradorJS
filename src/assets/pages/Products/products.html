@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./products.css">
+    <link rel="stylesheet" href="../fontawesome/fontawesome-free-5.15.3-web/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;700&family=Gilda+Display&family=Hepta+Slab:wght@300;400&display=swap" rel="stylesheet">
+    <title>Productos</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-submenu-container">
+             <div class="header-submenu">
+            <a href="">Carrito</a>
+            
+        </div> 
+        </div>
+      
+        <div class="nav ">
+            <a href="#" class="logo nav-link">BEAUTY GLAM</a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu ">
+                <li class="nav-menu-item "><a href="#inicio" class="nav-menu-link nav-link nav-menu-link_active">Inicio</a></li>                
+                <li class="nav-menu-item "><a href="#nosotros" class="nav-menu-link nav-link nav-menu-link_active">Contacto</a></li>
+                <li class="nav-menu-item "><a href="#contacto" class="nav-menu-link nav-link nav-menu-link_active">Productos</a></li>
+             <!--    <li class="nav-menu-item "><a href="./register/register.html" target="_blank" class="nav-menu-link nav-link nav-menu-link_active">Registrate!</a></li>
+                <li class="nav-menu-item "><a href="./login/login.html" target="_blank" class="nav-menu-link nav-link nav-menu-link_active">Iniciar Sesión</a></li> -->
+            </ul>
+        </div>
+    </header>
+        <div class="title-productos">
+            <h2>Catalogo de productos</h2>
+            <label for="searchInput">Buscar por tipo de producto</label>
+            <input type="text" name="searchInput" id="inputSearch">
+            <button id="searchProducts">Buscar</button>
+        </div>
+        <span>ejemplo: broncer, blush, foundation, eyesshado, eyerliner, lipstick, mascara</span>
+        <div class="products-container">           
+        </div>
+
+        <div class="conteiner-cart-products">
+            <div class="title-cart">
+              <h3>Carrito de compras</h3>  
+            </div>
+            <div class="cart-wrapper" id="cart-list"> 
+                          
+            </div>
+            <div class="total-products">
+                <span>
+                    <strong>Total</strong> <b id="totalAmount"> $ 0</b>
+                </span>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    <footer>
+        <div class="contacto-subscrition">
+             <h4>Para consultas manda un mail a beautyglam@gmail.com</h4>  
+            <div class="subscription">
+                <h4>Si queres recibir todas las ofertas semanales subscribite con tu mail!</h4>
+                <input type="text">               
+            </div>
+        </div>
+        
+        <div class="container-info-footer">
+            <div class="copyright">
+                <h5>© 2021 Beauty Glam - Nucba</h5>
+            </div>
+            <div class="redesSociales">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>        
+      </footer>
+  <script src="./products.js"></script>  
+</body>
+</html>
