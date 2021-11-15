@@ -9,7 +9,8 @@ const productsContainer =  document.querySelector('.products-container');
 const totalAmount = document.getElementById('totalAmount');
 const cartList = document.getElementById('cart-list');
 const searchInput = document.getElementById('inputSearch');
-const btnSearch = document.getElementById('searchProducts')
+const btnSearch = document.getElementById('searchProducts');
+const btnClean = document.getElementById('btn-clean');
 
 const getMakeUp = async () => {
 
@@ -18,13 +19,90 @@ const getMakeUp = async () => {
             method:'GET'
         });
         const json = await response.json();
-        renderAllItems(json)       
-        console.log(json);
+        const allProducts = json;        
+        renderAllItems(allProducts) 
+        searchProduct(allProducts)      
+        console.log(allProducts);
+                
     } catch (error) {
         alert(error);
     }
    
 };
+
+const searchProduct = (item) => {
+
+
+    btnSearch.addEventListener('click', ()=>{
+
+        const valueInput = searchInput.value
+        
+        const typeProduct = item.filter( type => type.product_type === valueInput)       
+
+            typeProduct.forEach( searchItem => {
+                const p2 = document.createElement('p');
+                const divTitle2  = document.createElement('div');
+                const img2 =  document.createElement('img');
+                const precio2 =  document.createElement('p');
+                const btn2 = document.createElement('button');     
+                
+                const id = searchItem.id
+                const productType = searchItem.product_type
+        
+                img2.alt = searchItem.name;
+                img2.src = `${searchItem.image_link}`;
+                divTitle2.appendChild(img2);
+                p2.innerText = searchItem.name;
+                precio2.innerText = `Precio: ${ searchItem.price}$`;
+                btn2.innerText = 'Comprar';
+        
+                divTitle2.appendChild(p2);
+                divTitle2.appendChild(precio2);
+                divTitle2.appendChild(btn2);
+        
+                productsContainer.appendChild(divTitle2);
+                
+                
+        
+                btn2.addEventListener('click', () => 
+                {  
+                    const product = myCart.find(product => product.id === id);
+                    
+                                
+                    if(product){
+                        const index = myCart.indexOf(product);
+                        product.quantity ++;
+                        myCart[index] = product;
+                    }else{
+        
+                        const productToCart = {
+                            img: img2.src,
+                            name: searchItem.name,
+                            price: Number(searchItem.price),
+                            id: searchItem.id,
+                            quantity: 1,
+                            productType: searchItem.product_type
+                        }
+                        myCart.push(productToCart);
+                    }
+                               
+                      /* const productId = myCart.map( ({id}) => id);    
+                      console.log(productId); */
+                    renderCartProducts();
+                    showTotalAmount();
+                    console.log(myCart) ;
+                });       
+           
+            
+        });
+        
+        
+        
+    });
+    
+};
+
+
 
 const renderAllItems = (item) => {
     item.forEach( item => {            
@@ -32,7 +110,10 @@ const renderAllItems = (item) => {
         const divTitle  = document.createElement('div');
         const img =  document.createElement('img');
         const precio =  document.createElement('p');
-        const btn = document.createElement('button');        
+        const btn = document.createElement('button');     
+        
+        const id = item.id
+        const productType = item.product_type
 
         img.alt = item.name;
         img.src = `${item.image_link}`;
@@ -44,13 +125,13 @@ const renderAllItems = (item) => {
         divTitle.appendChild(p);
         divTitle.appendChild(precio);
         divTitle.appendChild(btn);
-
-
+      
+        productsContainer.appendChild(divTitle);     
 
         btn.addEventListener('click', () => 
         {  
             const product = myCart.find(product => product.id === id);
-            console.log(product)
+            
                         
             if(product){
                 const index = myCart.indexOf(product);
@@ -63,33 +144,26 @@ const renderAllItems = (item) => {
                     name: item.name,
                     price: Number(item.price),
                     id: item.id,
-                    quantity: 1
+                    quantity: 1,
+                    productType: item.product_type
                 }
                 myCart.push(productToCart);
             }
-            
-            
-
-            
-               
-
-           
-              const productId = myCart.map( ({id}) => id);
-            
-              console.log(productId);
+                       
+              /* const productId = myCart.map( ({id}) => id);    
+              console.log(productId); */
             renderCartProducts();
             showTotalAmount();
             console.log(myCart) ;
         });
 
-        productsContainer.appendChild(divTitle); 
-                  
-    });
+        btnSearch.addEventListener('click',()=> {
+            divTitle.style.display= 'none'    
+            
+        })
+      
+        });                   
 }
-
-
-
-
 
 
 const renderCartProducts = () => {
@@ -99,7 +173,8 @@ const renderCartProducts = () => {
         const container =  document.createElement('div');
         container.className = 'cart-item';
         container.style.display= 'flex';
-        container.style.flexDirection= 'column'    ;
+        container.style.flexDirection= 'column';
+        container.style.width= '60%';
 
         const cartItemContent =  document.createElement('div');
         cartItemContent.className= 'cart-item-content';
@@ -176,3 +251,4 @@ navToggle.addEventListener("click", ()=> {
 });
 
 getMakeUp();
+searchProduct();
