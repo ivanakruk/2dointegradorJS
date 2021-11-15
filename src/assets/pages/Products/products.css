@@ -11,7 +11,9 @@ body{
     align-items: center;
     padding-top: 100px;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 /*******************************************    MENU NAVBAR ***************************************************/
 
 .header{
@@ -168,11 +170,34 @@ body{
     align-items: center;
 }
 
+.btn{
+    width: 150px;
+    height: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #fd58ab;
+    background-color: rgba(255, 175, 208, 0.219);
+    border: 1px solid #fd58ab;
+    border-radius: 5px;
+    margin: 1em;  
+}
+.btn:hover{
+    background-color: #f895c6;
+    color: black;
+}
+
+.buy-btn{
+    font-size: 1em;
+    padding: .2em;
+    margin: 1em;
+    cursor: pointer;
+}
+
 footer{
     width: 100%;
     display: flex;   
     justify-content: space-between;    
-    background-color: #b63575;
+    background-color: #f8cfe4;
 }
 
 .contacto-subscrition{

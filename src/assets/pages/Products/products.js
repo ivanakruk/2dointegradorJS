@@ -6,6 +6,7 @@ const myCart = [];
 
 const makeupURL = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
 const productsContainer =  document.querySelector('.products-container');
+const containerProducts = document.getElementById('containerProducts')
 const totalAmount = document.getElementById('totalAmount');
 const cartList = document.getElementById('cart-list');
 const searchInput = document.getElementById('inputSearch');
@@ -21,7 +22,8 @@ const getMakeUp = async () => {
         const json = await response.json();
         const allProducts = json;        
         renderAllItems(allProducts) 
-        searchProduct(allProducts)      
+        searchProduct(allProducts) 
+          
         console.log(allProducts);
                 
     } catch (error) {
@@ -31,10 +33,11 @@ const getMakeUp = async () => {
 };
 
 const searchProduct = (item) => {
-
+   
 
     btnSearch.addEventListener('click', ()=>{
 
+         
         const valueInput = searchInput.value
         
         const typeProduct = item.filter( type => type.product_type === valueInput)       
@@ -93,10 +96,11 @@ const searchProduct = (item) => {
                     console.log(myCart) ;
                 });       
            
-            
         });
         
-        
+        btnClean.addEventListener('click', ()=>{    
+            containerProducts.innerHTML='';
+        }); 
         
     });
     
@@ -121,6 +125,9 @@ const renderAllItems = (item) => {
         p.innerText = item.name;
         precio.innerText = `Precio: ${ item.price}$`;
         btn.innerText = 'Comprar';
+
+        btn.className = 'buy-btn';     
+        divTitle.style.margin= '3em';
 
         divTitle.appendChild(p);
         divTitle.appendChild(precio);

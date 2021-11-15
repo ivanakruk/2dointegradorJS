@@ -13,34 +13,33 @@
     <header class="header">
         <div class="header-submenu-container">
              <div class="header-submenu">
-            <a href="">Carrito</a>
+            <a href="#cart-list">Carrito</a>
             
         </div> 
         </div>
       
-        <div class="nav ">
+        <div class="nav " >
             <a href="#" class="logo nav-link">BEAUTY GLAM</a>
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-menu ">
-                <li class="nav-menu-item "><a href="#inicio" class="nav-menu-link nav-link nav-menu-link_active">Inicio</a></li>                
-                <li class="nav-menu-item "><a href="#nosotros" class="nav-menu-link nav-link nav-menu-link_active">Contacto</a></li>
-                <li class="nav-menu-item "><a href="#contacto" class="nav-menu-link nav-link nav-menu-link_active">Productos</a></li>
+            <ul class="nav-menu ">                              
+                <li class="nav-menu-item "><a href="#contacto" class="nav-menu-link nav-link nav-menu-link_active">Contacto</a></li>
+                <li class="nav-menu-item "><a href="#" class="nav-menu-link nav-link nav-menu-link_active">Productos</a></li>
              <!--    <li class="nav-menu-item "><a href="./register/register.html" target="_blank" class="nav-menu-link nav-link nav-menu-link_active">Registrate!</a></li>
                 <li class="nav-menu-item "><a href="./login/login.html" target="_blank" class="nav-menu-link nav-link nav-menu-link_active">Iniciar Sesión</a></li> -->
             </ul>
         </div>
     </header>
-        <div class="title-productos">
-            <h2>Catalogo de productos</h2>
+        <div class="title-productos" id="inicioProducts" >
+            <h2 >Catalogo de productos</h2>
             <label for="searchInput">Buscar por tipo de producto</label>
             <input type="text" name="searchInput" id="inputSearch">
-            <button id="searchProducts">Buscar</button>
-            <button id="btn-clean" >Limpiar Busqueda</button>
+            <button class="btn" id="searchProducts">Buscar</button>
+            <button class="btn" id="btn-clean" >Limpiar Busqueda</button>
         </div>
-        <span>ejemplo: broncer, blush, foundation, eyesshado, eyerliner, lipstick, mascara</span>
-        <div class="products-container">           
+        <span>ejemplo: bronzer, blush, foundation, eyesshado, eyerliner, lipstick, mascara</span>
+        <div class="products-container" id="containerProducts">           
         </div>
 
         <div class="conteiner-cart-products">
@@ -55,7 +54,7 @@
                     <strong>Total</strong> <b id="totalAmount"> $ 0</b>
                 </span>
             </div>
-
+            <button class="btn" id="finishShopping">COMPRAR</button>
         </div>
 
 
@@ -65,7 +64,7 @@
 
 
     <footer>
-        <div class="contacto-subscrition">
+        <div class="contacto-subscrition" id="contacto">
              <h4>Para consultas manda un mail a beautyglam@gmail.com</h4>  
             <div class="subscription">
                 <h4>Si queres recibir todas las ofertas semanales subscribite con tu mail!</h4>
